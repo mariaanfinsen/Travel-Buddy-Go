@@ -1,7 +1,12 @@
 package com.assignment.lenececilienielsen.travelbuddygo;
 
-import android.support.v4.app.FragmentActivity;
+import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -9,6 +14,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.IOException;
+import java.util.List;
 
 
 public class TravelMapActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -25,6 +33,33 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         mapFragment.getMapAsync(this);
     }
 
+    public void goToHistory(View view) {
+        Intent intent = new Intent(TravelMapActivity.this, CompassActivity.class);
+        startActivity(intent);
+    }
+        public void onSearch(View view)
+        {
+            EditText location_tf = (EditText)findViewById(R.id.city_searcher);
+            String location = location_tf.getText().toString();
+            List<Address> addressList = null;
+            if(location != null || !location.equals(""))
+            {
+                Geocoder geocoder = new Geocoder(this);
+                try {
+                    addressList = geocoder.getFromLocationName(location , 1);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Address address = addressList.get(0);
+                LatLng latLng = new LatLng(address.getLatitude() , address.getLongitude());
+                mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+
+            }
+        }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -34,5 +69,8 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // Adds a small button that finds your current location.
+        mMap.setMyLocationEnabled(true);
+
     }
 }
