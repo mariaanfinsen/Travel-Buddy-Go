@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:onClick="sendMessage" />
+        android:onClick="goBack"
+        android:id="@+id/Back_button"/>
 
     <ImageView
         android:id="@+id/imageViewCompass"

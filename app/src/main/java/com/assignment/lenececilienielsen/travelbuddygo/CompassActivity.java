@@ -4,19 +4,18 @@ package com.assignment.lenececilienielsen.travelbuddygo;
  * Code from: https://www.codeofaninja.com/2013/08/android-compass-code-example.html
  */
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.EditText;
 
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -75,6 +74,11 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         mSensorManager.unregisterListener(this);
     }
 
+    public void goBack(View view) {
+        Intent intent = new Intent(CompassActivity.this, TravelMapActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onSensorChanged(SensorEvent event) {
 
@@ -111,11 +115,12 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     /**
      * Called when the user clicks the Send button
      */
-    public void sendMessage(View view) {
+    /**public void sendMessage(View view) {
         Intent intent = new Intent(this, TravelMapActivity.class);
         EditText editText = (EditText) findViewById(R.id.title_view);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
-    }
+    }*/
 }
+

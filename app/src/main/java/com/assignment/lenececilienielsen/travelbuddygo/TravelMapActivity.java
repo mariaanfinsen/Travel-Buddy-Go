@@ -61,6 +61,10 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
             }
         }
 
+    public void goToCompass(View view) {
+        Intent intent = new Intent(TravelMapActivity.this, CompassActivity.class);
+        startActivity(intent);
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
