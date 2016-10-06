@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //Solution found in URL: http://stackoverflow.com/a/34284213
+        multiDexEnabled true
     }
     buildTypes {
         release {
