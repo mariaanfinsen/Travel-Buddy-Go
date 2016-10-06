@@ -1,8 +1,9 @@
 package com.assignment.lenececilienielsen.travelbuddygo;
 
-//code from https://www.codeofaninja.com/2013/08/android-compass-code-example.html//
+/**
+ * Code from: https://www.codeofaninja.com/2013/08/android-compass-code-example.html
+ */
 
-import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,25 +18,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-public class CompassActivity extends AppCompatActivity {
+public class CompassActivity extends AppCompatActivity implements SensorEventListener {
+
     public final static String EXTRA_MESSAGE = "app_name";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.travelmaplayout);
-    }
-
-    /** Called when the user clicks the Send button */
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, TravelMapActivity.class);
-        EditText editText = (EditText) findViewById(R.id.title_view);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
-}
-
-public class CompassActivity extends Activity implements SensorEventListener {
 
     // define the display assembly compass picture
     private ImageView image;
@@ -51,17 +36,25 @@ public class CompassActivity extends Activity implements SensorEventListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.travelmaplayout);
+    }
+
+    /*
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.compasslayout);
 
         // our compass image
         image = (ImageView) findViewById(R.id.imageViewCompass);
 
         // TextView that will tell the user what degree is he heading
-        tvHeading = (TextView) findViewById(R.id.tvHeading;
+        tvHeading = (TextView) findViewById(R.id.tvHeading);
 
         // initialize your android device sensor capabilities
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
+    */
 
     @Override
     protected void onResume() {
@@ -111,5 +104,16 @@ public class CompassActivity extends Activity implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // not in use
+    }
+
+    /**
+     * Called when the user clicks the Send button
+     */
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, TravelMapActivity.class);
+        EditText editText = (EditText) findViewById(R.id.title_view);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }
