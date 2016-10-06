@@ -33,13 +33,15 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
 
     TextView tvHeading;
 
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travelmaplayout);
     }
+    */
 
-    /*
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         // initialize your android device sensor capabilities
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
-    */
+
 
     @Override
     protected void onResume() {
