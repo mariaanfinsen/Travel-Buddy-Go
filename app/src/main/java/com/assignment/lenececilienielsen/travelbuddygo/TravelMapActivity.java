@@ -119,31 +119,31 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         mSYDNEY = mMap.addMarker(new MarkerOptions()
                 .position(SYDNEY)
                 .title("Sydney")
-                .snippet("Facts about Sydney here."));
+                .snippet("Information about Sydney here."));
         mSYDNEY.setTag(0);
 
         mBrisbane = mMap.addMarker(new MarkerOptions()
                 .position(BRISBANE)
                 .title("Brisbane")
-                .snippet("Facts about Brisbane here."));
+                .snippet("Information about Brisbane here."));
         mBrisbane.setTag(0);
 
         mNewYork = mMap.addMarker(new MarkerOptions()
                 .position(NEWYORK)
                 .title("New York")
-                .snippet("Facts about New York here."));
+                .snippet("Information about New York here."));
         mNewYork.setTag(0);
 
         mParis = mMap.addMarker(new MarkerOptions()
                 .position(PARIS)
                 .title("Paris")
-                .snippet("Facts about Paris here."));
+                .snippet("Information about Paris here."));
         mParis.setTag(0);
 
         mNTNU = mMap.addMarker(new MarkerOptions()
                 .position(NTNU)
                 .title("NTNU Gjøvik")
-                .snippet("Facts about NTNU here."));
+                .snippet("Information about NTNU here."));
         mNTNU.setTag(0);
 
 
