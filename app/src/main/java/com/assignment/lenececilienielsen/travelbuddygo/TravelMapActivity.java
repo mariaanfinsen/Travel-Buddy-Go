@@ -148,8 +148,11 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
 
 
 
+        /*
         mMap.moveCamera(CameraUpdateFactory.newLatLng(NTNU));
         mMap.setMyLocationEnabled(true);
+        */
+
         // Add a marker in Sydney and move the camera
         /*LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));

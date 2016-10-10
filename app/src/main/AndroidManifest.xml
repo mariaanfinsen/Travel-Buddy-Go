@@ -24,9 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--http://stackoverflow.com/a/2941600-->
         <activity
             android:label="TravelBuddyGo"
-            android:name=".CompassActivity" >
+            android:name=".CompassActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
