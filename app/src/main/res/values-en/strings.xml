@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Travel Buddy Go</string>
+    <string name="title_activity_travel_map">TravelMap</string>
+
+    <string name="back_to_map">Back to map</string>
+    <string name="image_desc__travel_map">TravelMap</string>
+    <string name="heading">Heading: 0.0</string>
+
+    <string name="search_bar">Edit...</string>
+    <string name="search">Search</string>
+    <string name="back_to_compass">Back to compass</string>
+</resources>

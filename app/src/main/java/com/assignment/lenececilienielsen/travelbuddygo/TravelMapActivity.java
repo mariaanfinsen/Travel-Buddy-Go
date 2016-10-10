@@ -119,7 +119,7 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         mSYDNEY = mMap.addMarker(new MarkerOptions()
                 .position(SYDNEY)
                 .title("Sydney")
-                .snippet("Information about Sydney here."));
+                .snippet("Sydney is the most populous city in Australia and Oceania. Located on Australia's east coast, the metropolis surrounds the world's largest natural harbour, and sprawls towards the Blue Mountains to the west. Residents of Sydney are known as \"Sydneysiders\". The Sydney area has been inhabited by indigenous Australians for at least 30,000 years."));
         mSYDNEY.setTag(0);
 
         mBrisbane = mMap.addMarker(new MarkerOptions()

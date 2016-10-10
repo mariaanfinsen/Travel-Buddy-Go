@@ -13,7 +13,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:text="@string/back_to_map"
         android:onClick="goBack"
         android:id="@+id/Back_button"/>
 
@@ -32,7 +32,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:layout_marginTop="20dp"
-        android:text="Heading: 0.0" />
+        android:text="@string/heading" />
 
 
 </RelativeLayout>

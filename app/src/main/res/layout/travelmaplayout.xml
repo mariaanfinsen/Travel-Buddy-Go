@@ -9,16 +9,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@string/search_bar"
         android:ems="10"
         android:id="@+id/city_searcher"
         android:layout_weight="1"/>
 
     <Button
-        android:text="Search"
+        android:text="@string/search"
         android:layout_width="143dp"
         android:layout_height="wrap_content"
         android:id="@+id/search_button"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <Button
-        android:text="Go to compass"
+        android:text="@string/back_to_compass"
         android:layout_width="152dp"
         android:layout_height="match_parent"
         android:id="@+id/compass_button"
