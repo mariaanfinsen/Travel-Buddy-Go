@@ -3,11 +3,17 @@
     <string name="app_name">Travel Buddy Go</string>
     <string name="title_activity_travel_map">Kart</string>
 
-    <string name="back_to_map">Tilbake til kart</string>
+    <string name="back_to_map">Tilbake til map</string>
     <string name="image_desc__travel_map">TravelMap</string>
-    <string name="heading">Kurs: 0.0</string>
 
-    <string name="search_bar">Rediger...</string>
+    <string name="heading">Orientasjon: </string>
+    <string name="temp_value">0.0 </string>
+    <string name="degrees">grader</string>
+
+    <string name="search_bar">Edit...</string>
     <string name="search">Søk</string>
-    <string name="back_to_compass">Compass</string>
+    <string name="back_to_compass">Kompass</string>
+
+    <string name="latitude">Breddegrad: </string>
+    <string name="longditude">Lengdegrad: </string>
 </resources>

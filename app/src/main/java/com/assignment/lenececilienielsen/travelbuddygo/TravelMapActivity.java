@@ -1,4 +1,7 @@
 package com.assignment.lenececilienielsen.travelbuddygo;
+/**
+ * URL: https://www.youtube.com/watch?v=NHXa96-r8TY
+ */
 
 import android.content.Intent;
 import android.location.Address;
@@ -8,7 +11,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,33 +38,26 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         mapFragment.getMapAsync(this);
     }
 
-    public void goToHistory(View view) {
-        Intent intent = new Intent(TravelMapActivity.this, CompassActivity.class);
-        startActivity(intent);
-    }
-        public void onSearch(View view)
-        {
-            EditText location_tf = (EditText)findViewById(R.id.city_searcher);
-            String location = location_tf.getText().toString();
-            List<Address> addressList = null;
-            if(location != null || !location.equals(""))
-            {
-                Geocoder geocoder = new Geocoder(this);
-                try {
-                    addressList = geocoder.getFromLocationName(location , 1);
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Address address = addressList.get(0);
-                LatLng latLng = new LatLng(address.getLatitude() , address.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-
+    /**
+     * URL: https://www.dropbox.com/sh/293c77aq7u23ebo/AAA9Sqk46-cl9mKzjM9fIqe2a/app/src/main/java/com/techacademy/demomaps?dl=0&preview=MapsActivity.java
+     */
+    public void onSearch(View view) {
+        EditText location_tf = (EditText)findViewById(R.id.city_searcher);
+        String location = location_tf.getText().toString();
+        List<Address> addressList = null;
+        if(location != null || !location.equals("")) {
+            Geocoder geocoder = new Geocoder(this);
+            try {
+                addressList = geocoder.getFromLocationName(location , 1);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            Address address = addressList.get(0);
+            LatLng latLng = new LatLng(address.getLatitude() , address.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
         }
+    }
 
     public void goToCompass(View view) {
         Intent intent = new Intent(TravelMapActivity.this, CompassActivity.class);
@@ -73,8 +68,9 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         mMap = googleMap;
 
         /**
-         * Tutorial used for the info window functionality.
+         * Tutorial used for the map tags and info window functionality.
          * URL: https://www.youtube.com/watch?v=g7rvqxn8SLg
+         * URL: http://stackoverflow.com/a/11536371
          */
         if(mMap != null) {
             mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
@@ -92,8 +88,8 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
 
                     LatLng ll = marker.getPosition();
                     tvLocality.setText(marker.getTitle());
-                    tvLat.setText("Latitude: " + ll.latitude);
-                    tvLng.setText("Longitude: " + ll.longitude);
+                    tvLat.setText(getResources().getString(R.string.latitude) + ll.latitude);
+                    tvLng.setText(getResources().getString(R.string.longditude) + ll.longitude);
                     tvSnippit.setText(marker.getSnippet());
                     return v;
                 }
@@ -101,7 +97,7 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         }
 
         /**
-         * Tutorial used for the info window functionality.
+         * Tutorial used for the map tags and info window functionality.
          * URL: https://developers.google.com/maps/documentation/android-api/marker
          */
         LatLng SYDNEY = new LatLng(-33.865081, 151.203843);
@@ -124,6 +120,9 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
         Marker mCapeTown;
         Marker mRioDeJaneiro;
 
+        /**
+         * The snippet text has been taken from wikipedia.
+         */
         mSYDNEY = mMap.addMarker(new MarkerOptions()
                 .position(SYDNEY)
                 .title("Sydney")
@@ -177,18 +176,5 @@ public class TravelMapActivity extends FragmentActivity implements OnMapReadyCal
                 .title("Saint Petersburg")
                 .snippet("Saint Petersburg is Russia's second-largest city after Moscow, with five million inhabitants in 2012 and an important Russian port on the Baltic Sea."));
         mSaintPetersburg.setTag(0);
-
-
-        /*
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(NTNU));
-        mMap.setMyLocationEnabled(true);
-        */
-
-        // Add a marker in Sydney and move the camera
-        /*LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        // Adds a small button that finds your current location.
-        mMap.setMyLocationEnabled(true);*/
     }
 }

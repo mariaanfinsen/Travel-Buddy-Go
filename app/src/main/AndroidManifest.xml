@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  - URL: https://www.youtube.com/watch?v=NHXa96-r8TY
+  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.assignment.lenececilienielsen.travelbuddygo">
 
@@ -24,7 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--http://stackoverflow.com/a/2941600-->
+        <!--
+          - URL: http://stackoverflow.com/a/2941600
+          -->
         <activity
             android:label="TravelBuddyGo"
             android:name=".CompassActivity"

@@ -19,8 +19,6 @@ import android.widget.TextView;
 
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
 
-    public final static String EXTRA_MESSAGE = "app_name";
-
     // define the display assembly compass picture
     private ImageView image;
 
@@ -31,15 +29,6 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     private SensorManager mSensorManager;
 
     TextView tvHeading;
-
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.travelmaplayout);
-    }
-    */
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +44,6 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         // initialize your android device sensor capabilities
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
     }
-
 
     @Override
     protected void onResume() {
@@ -85,7 +73,11 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         // get the angle around the z-axis rotated
         float degree = Math.round(event.values[0]);
 
-        tvHeading.setText("Heading: " + Float.toString(degree) + " degrees");
+        /**
+         * URL: http://stackoverflow.com/a/11536371
+         */
+        tvHeading.setText(getResources().getString(R.string.heading) +
+                Float.toString(degree) + getResources().getString(R.string.degrees));
 
         // create a rotation animation (reverse turn degree degrees)
         RotateAnimation ra = new RotateAnimation(
@@ -104,23 +96,10 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         // Start the animation
         image.startAnimation(ra);
         currentDegree = -degree;
-
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // not in use
+        // not in use.
     }
-
-    /**
-     * Called when the user clicks the Send button
-     */
-    /**public void sendMessage(View view) {
-        Intent intent = new Intent(this, TravelMapActivity.class);
-        EditText editText = (EditText) findViewById(R.id.title_view);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }*/
 }
-

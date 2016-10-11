@@ -1,4 +1,7 @@
 package com.assignment.lenececilienielsen.travelbuddygo;
+/**
+ * URL: http://www.ssaurel.com/blog/learn-how-to-make-a-compass-application-for-android/
+ */
 
 import android.content.Context;
 import android.graphics.Bitmap;
